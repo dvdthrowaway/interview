@@ -34,6 +34,10 @@ var getAllUserRoutes = function(userId) {
 }
 
 var getUserRoutesByService = function(userId, serviceNames) {
+  if(serviceNames == null){
+    throw new ReferenceError('serviceNames undefined: pass array of serviceNames');
+  }
+
   let userRoutes = []
   for (let serviceName of serviceNames) {
     let service = ServiceMap[serviceName]

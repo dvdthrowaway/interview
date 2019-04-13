@@ -5,6 +5,7 @@
   "main": "interview.js",
   "scripts": {
     "interview": "node interview.js",
+    "test": "jest",
     "lint-check": "prettier --debug-check 'src/**/*.js'",
     "lint": "prettier --write 'src/**/*.js'"
   },
@@ -19,6 +20,7 @@
   },
   "homepage": "https://github.com/hammerheadnav/interview#readme",
   "devDependencies": {
+    "jest": "^24.7.1",
     "prettier": "1.17.0"
   }
 }
