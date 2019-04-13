@@ -17,24 +17,24 @@ test('Get Routes for User 42', () => {
 	expect(ServiceMaster.getAllUserRoutes(42)).toEqual(user42Routes)
 })
 
-test('test:Get Routes for User 42 from Services Komoot and RWGPS', () => {
+test('Get Routes for User 42 from Services Komoot and RWGPS', () => {
 	const serviceNames = ['Komoot','RWGPS']
 	expect(ServiceMaster.getUserRoutesByService(42,serviceNames).sort()).toEqual(user42RoutesKomootRWGPS.sort())
 })
 
-test('test:Get All Unique Routes', () => {
+test('Get All Unique Routes', () => {
 	expect(() => {
 		ServiceMaster.getAllUserRoutes()
 	}).toThrow();
 })
 
-test('test:Get User Routes By Service with null services', () => {
+test('Get User Routes By Service with null services', () => {
 	expect(() => {
 		ServiceMaster.getUserRoutesByService(42)
 	}).toThrow();
 })
 
-test('test:Get User Routes By Service with Bad Service', () => {
+test('Get User Routes By Service with Bad Service', () => {
 	expect(() => {
 		ServiceMaster.getUserRoutesByService(42, ['Komoot','Strave'])
 	}).toThrow();

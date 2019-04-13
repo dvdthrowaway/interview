@@ -6,7 +6,7 @@
   "scripts": {
     "interview": "node interview.js",
     "test": "jest",
-    "lint-check": "prettier --debug-check 'src/**/*.js'",
+    "lint-check": "prettier --check 'src/**/*.js'",
     "lint": "prettier --write 'src/**/*.js'"
   },
   "repository": {

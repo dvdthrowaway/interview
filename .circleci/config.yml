@@ -13,4 +13,4 @@ jobs:
 
       - run:
           name: Test
-          command: npm run test
+          command: npm run test && npm run lint-check
