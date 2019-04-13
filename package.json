@@ -1,0 +1,24 @@
+{
+  "name": "interview",
+  "version": "1.0.0",
+  "description": "javascript implementation of hammer head interview question",
+  "main": "interview.js",
+  "scripts": {
+    "interview": "node interview.js",
+    "lint-check": "prettier --debug-check 'src/**/*.js'",
+    "lint": "prettier --write 'src/**/*.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hammerheadnav/interview.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hammerheadnav/interview/issues"
+  },
+  "homepage": "https://github.com/hammerheadnav/interview#readme",
+  "devDependencies": {
+    "prettier": "1.17.0"
+  }
+}
