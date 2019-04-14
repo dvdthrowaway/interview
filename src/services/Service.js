@@ -1,6 +1,14 @@
 class Service {
   static getUserRoutes(userId) {
-    throw new TypeError('Implment getUserRoutes')
+    if (userId == null) {
+      throw new ReferenceError('UserId is null or undefined, pass a value')
+    }
+
+    return this.routes.map(route => this.formatUserRoute(route, userId))
+  }
+
+  static formatUserRoute() {
+    throw new TypeError('Implement formatUserRoute')
   }
 
   static get routes() {

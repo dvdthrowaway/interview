@@ -1,10 +1,8 @@
 const Service = require('./Service')
+
 class RwgpsService extends Service {
-  static getUserRoutes(userId) {
-    if (userId == null) {
-      throw new ReferenceError('UserId is null or undefined, pass a value')
-    }
-    return this.routes.map(route => route + userId)
+  static formatUserRoute(route, userId) {
+    return route + userId
   }
 }
 
