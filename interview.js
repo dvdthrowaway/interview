@@ -1,8 +1,13 @@
 const ServiceMaster = require('./src/ServiceMaster')
 
-const serviceMaster = new ServiceMaster([require('./src/services/StravaService'),
-  require('./src/services/RwgpsService'),
-  require('./src/services/KomootService')])
+const StravaService = require('./src/services/StravaService')
+const RwgpsService = require('./src/services/RwgpsService')
+const KomootService = require('./src/services/KomootService')
+
+const serviceMaster = ServiceMaster.singleton
+  .addService(StravaService)
+  .addService(RwgpsService)
+  .addService(KomootService)
 
 let userId = 22
 let services = ['Strava','Komoot']

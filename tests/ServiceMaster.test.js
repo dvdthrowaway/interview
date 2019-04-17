@@ -3,11 +3,10 @@ const StravaService = require('../src/services/StravaService')
 const RwgpsService = require('../src/services/RwgpsService')
 const KomootService = require('../src/services/KomootService')
 
-const serviceMaster = new ServiceMaster([
-  StravaService,
-  RwgpsService,
-  KomootService,
-])
+const serviceMaster = ServiceMaster.singleton
+  .addService(StravaService)
+  .addService(RwgpsService)
+  .addService(KomootService)
 
 const allRoutes = [
   'SRT',
@@ -49,18 +48,6 @@ const user42RoutesKomootRWGPS = [
 
 const serviceNames = ['Strava', 'Komoot', 'RWGPS']
 
-test('Init Service Master With Constructor', () => {
-  let serviceMaster = new ServiceMaster([
-    StravaService,
-    RwgpsService,
-    KomootService,
-  ])
-  expect(serviceMaster.services.length).toEqual(3)
-  expect(Object.keys(serviceMaster.serviceMap).sort()).toEqual(
-    serviceNames.sort()
-  )
-})
-
 test('build Service Master With add service', () => {
   let serviceMaster = new ServiceMaster()
   serviceMaster
@@ -80,15 +67,9 @@ test('build Service Master With bad service', () => {
   }).toThrow()
 })
 
-test('Init Service Master With bad service', () => {
-  expect(() => {
-    new ServiceMaster([StravaService, 'Bad Service'])
-  }).toThrow()
-})
-
 test('build service with duplicate service', () => {
-  let serviceMaster = new ServiceMaster([StravaService])
-  serviceMaster.addService(StravaService)
+  let serviceMaster = new ServiceMaster()
+  serviceMaster.addService(StravaService).addService(StravaService)
   expect(serviceMaster.services.length).toEqual(1)
 })
 

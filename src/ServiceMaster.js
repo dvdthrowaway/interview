@@ -3,19 +3,9 @@
 const Service = require('./services/Service')
 
 class ServiceMaster {
-  constructor(services = []) {
-    if (!Array.isArray(services)) {
-      throw new TypeError('Pass array of services to ServiceMaster constructor')
-    }
-    this._services = services
+  constructor() {
+    this._services = []
     this._serviceMap = {}
-    for (let service of services) {
-      if (service.prototype instanceof Service) {
-        this._serviceMap[service.serviceName] = service
-      } else {
-        throw new TypeError('service is not of Service type')
-      }
-    }
   }
 
   get services() {
@@ -83,5 +73,6 @@ class ServiceMaster {
     return userRoutes
   }
 }
+ServiceMaster.singleton = new ServiceMaster()
 
 module.exports = ServiceMaster
