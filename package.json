@@ -7,7 +7,7 @@
     "interview": "node interview.js",
     "test": "jest",
     "lint-check": "prettier --check 'src/**/*.js'",
-    "lint": "prettier --write 'src/**/*.js'"
+    "lint": "prettier --write 'src/**/*.js' && prettier --write 'tests/**/*.js'"
   },
   "repository": {
     "type": "git",
